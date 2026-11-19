@@ -1,0 +1,261 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Загальні налаштування */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    background: #f4f4f6;
+    color: #33313b;
+    line-height: 1.7;
+}
+
+/* Верхня частина сайту */
+header {
+    position: relative;
+    overflow: hidden;
+    max-width: 1160px;
+    margin: 30px auto 0;
+    padding: 65px 55px;
+    background: linear-gradient(
+        120deg,
+        #e8e5ed,
+        #f2e4ed,
+        #e3def0
+    );
+    border: 1px solid #e4dce8;
+    border-radius: 32px;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -80px;
+    top: -100px;
+    border-radius: 50%;
+    background: rgba(197, 175, 224, 0.28);
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    color: #34303b;
+}
+
+header p {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 9px 19px;
+    margin: 0;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.65);
+    color: #796884;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Основна сітка */
+main {
+    max-width: 1160px;
+    margin: 25px auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Універсальні картки */
+.card {
+    min-width: 0;
+    background: #ffffff;
+    padding: 32px;
+    border: 1px solid #ece9ef;
+    border-radius: 26px;
+    box-shadow: 0 5px 20px rgba(55, 45, 70, 0.035);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(108, 90, 130, 0.10);
+}
+
+.card h2 {
+    color: #39333f;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0 0 20px;
+}
+
+.card h2::before {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background: #b9a1cf;
+}
+
+.card h3 {
+    font-size: 16px;
+    color: #55495e;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 14px;
+    color: #716c78;
+    line-height: 1.9;
+}
+
+/* Розташування карток */
+main > .card:nth-child(1) {
+    grid-column: span 7;
+    background: #ffffff;
+}
+
+main > .card:nth-child(2) {
+    grid-column: span 5;
+    background: #f3eaf0;
+}
+
+main > .card:nth-child(3) {
+    grid-column: span 5;
+}
+
+main > .card:nth-child(4) {
+    grid-column: span 7;
+    background: #eeebf4;
+}
+
+main > .card:nth-child(5) {
+    grid-column: span 4;
+    background: #f4edf3;
+}
+
+main > .card:nth-child(6) {
+    grid-column: span 8;
+}
+
+/* Списки у вигляді міток */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+li {
+    background: #f3f0f6;
+    color: #6e5d7b;
+    padding: 9px 14px;
+    border: 1px solid #e9e2ee;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Контакти */
+#contacts {
+    background: #ffffff;
+}
+
+/* Посилання */
+a {
+    color: #9573b4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+a[href^="mailto:"] {
+    color: #b77f9f;
+}
+
+a:hover {
+    color: #694b89;
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid #aa8ec9;
+    outline-offset: 4px;
+}
+
+/* Нижня частина */
+footer {
+    max-width: 1160px;
+    margin: 0 auto 25px;
+    padding: 25px;
+    text-align: center;
+    color: #96909c;
+    font-size: 13px;
+    background: #ebe9ee;
+    border-radius: 20px;
+}
+
+/* Адаптація під різні екрани */
+@media (max-width: 1200px) {
+    header, main, footer {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    main > .card {
+        grid-column: 1 / -1 !important;
+    }
+
+    header {
+        padding: 45px 28px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    header, main, footer {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        border-radius: 20px;
+        padding: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+}
